@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author kaioh
+ *
+ */
+module AreaDoRetangulo {
+}

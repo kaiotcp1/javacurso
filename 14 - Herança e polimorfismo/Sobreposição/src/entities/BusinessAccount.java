@@ -26,4 +26,20 @@ public class BusinessAccount extends Account {
 			balance += amount -10.00;
 		}
 	}
+	
+	@Override
+	public void withdraw(double amount) {
+		super.withdraw(amount);
+		balance -= 2.00;
+	}
+
+	@Override // TESTE
+	public String toString() {
+		return "BusinessAccount [loanLimit=" + loanLimit + ", balance=" + balance + ", getLoanLimit()=" + getLoanLimit()
+				+ ", getNumber()=" + getNumber() + ", getHolder()=" + getHolder() + ", getBalance()=" + getBalance()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+	
+	
 }

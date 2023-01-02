@@ -6,9 +6,9 @@ public class Account {
 	private String holder;
 	private Double balance;
 	private Double withdrawLimit;
-	
+
 	public Account() {
-		
+
 	}
 
 	public Account(Integer number, String holder, Double balance, Double withdrawLimit) {
@@ -50,16 +50,24 @@ public class Account {
 	public void setWithdrawLimit(Double withdrawLimit) {
 		this.withdrawLimit = withdrawLimit;
 	}
-	
+
 	public void deposit(double amount) {
 		balance += amount;
 	}
-	
+
 	public void withdraw(double amount) {
 		balance -= amount;
 	}
 	
-	
-	
-	
+	// GAMBIARRA 
+	public String validateWithdraw(double amount) {
+		if (amount > getWithdrawLimit()) {
+			return "Erro de saque: A quantia excede o limite de saque";
+		}
+		if (amount > getBalance()) {
+			return "Erro de saque: Saldo insuficiente";
+		}
+		return null;
+	}
+
 }

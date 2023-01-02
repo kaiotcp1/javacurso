@@ -9,10 +9,10 @@ public class Program {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-				
+
 		System.out.println("Informe os dados da conta");
 		System.out.println("Numero: ");
 		int number = sc.nextInt();
@@ -23,16 +23,22 @@ public class Program {
 		double balance = sc.nextDouble();
 		System.out.print("Limite de saque: ");
 		double withdrawLimit = sc.nextDouble();
-		
+
 		Account acc = new Account(number, holder, balance, withdrawLimit);
-		
+
 		System.out.println(); // QUEBRA DE LINHA
 		System.out.print("Informe uma quantia para sacar: ");
 		double amount = sc.nextDouble();
-		
-		acc.withdraw(amount);
-		System.out.printf("Novo saldo: %.2f", acc.getBalance());
-		
+
+		if (amount > acc.getWithdrawLimit()) {
+			System.out.println("Erro de saque: A quantia excede o limite de saque");
+		} else if (amount > acc.getBalance()) {
+			System.out.println("Erro de saque: Saldo insuficiente");
+		} else {
+			acc.withdraw(amount);
+			System.out.printf("Novo saldo: %.2f", acc.getBalance());
+		}
+
 		sc.close();
 	}
 
